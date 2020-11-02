@@ -1,0 +1,21 @@
+extends ./layout
+
+block body
+	
+	if (errors)
+		each error in errors
+			.ui.red.segment
+				span= error.msg
+
+	.ui.cards
+		.card.nuevo-proyecto(style="width: 100%;")
+			.content
+				.header.ui.capitalize= pageTitle
+				.description 
+					form(action="/agregar-proyecto" method="POST").ui.form
+						.field
+							label(for="name") Crear un nuevo proyecto
+							input(type="text" name="name" placeholder="Ej: Mi proyecto")
+						button.ui.botton.attached.button(style="width: 100%;", type="submit")
+							i.add.icon 
+							span Agregar proyecto

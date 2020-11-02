@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+html(lang="es")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="/css/semantic.css")
+		link(rel="stylesheet", href="/css/style.css")
+		title= pageTitle
+	body
+		
+		.ui.small.menu
+			a(href="/").active.item Inicio
+			a(href="/agregar-proyecto").item Nuevo Proyecto
+			.right.menu
+				.ui.dropdown.item Language
+					i.dropdown.icon
+					.menu
+						a(href="#").item English
+						a(href="#").item Friench
+						a(href="#").item Espanish
+				.item
+					.ui.primary.button Sign Up
+		
+		.ui.grid#wrapper
+			.four.wide.column
+				.ui.vertical.menu
+					.item.search
+						.ui.input
+							input(type="text" placeholder="Search..." class="ui search")
+					.item.text-default Proyectos
+						.menu
+							each proyecto in proyectos
+								a(href=`/proyectos/${proyecto.url}`).active.item= proyecto.name
+					.item.text-default
+						i.grid.layout.icon 
+						span Browse
+					.item.text-default Message
+					.ui.dropdown.item.text-default More
+						i.dropdown.icon
+						.menu
+							a(href="#").item
+								i.edit.icon Edit profile
+
+			.eight.wide.column
+				block body
+			.four.wide.column
+				.ui.compact.vertical.labeled.icon.menu
+					a(href="#").item
+						i.gamepad.icon
+						span Games
+					a(href="#").item
+						i.video.camera.icon
+						span Channels
+					a(href="#").item
+						i.video.play.icon
+						span Videos
+
+		script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+		script(src="/js/semantic.js")
+
+
+		
+	
